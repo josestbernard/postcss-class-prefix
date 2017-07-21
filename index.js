@@ -14,17 +14,20 @@ function classPrefix(prefix, options) {
       }
 
       rule.selectors = rule.selectors.map(function(selector) {
-        if (!isClassSelector(selector)) {
+        if (options.ignoreElements === true && !isClassSelector(selector)) {
           return selector;
         }
 
-        var classes = selector.split('.');
+        var classes = selector.split(',');
 
         return classes.map(function(clss){
+          console.log(clss)
           if (classMatchesTest(clss, options.ignore) || clss.trim().length === 0) {
             return clss;
+          } else if(clss === 'body') {
+            return prefix
           }
-          return prefix + clss;
+          return '.' + prefix + ' ' + clss;
         }).join('.');
       });
     });

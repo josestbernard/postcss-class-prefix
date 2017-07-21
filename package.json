@@ -1,7 +1,7 @@
 {
-  "name": "postcss-class-prefix",
+  "name": "postcss-parent-scope",
   "version": "0.3.0",
-  "description": "A class prefixer/namespacer for postcss",
+  "description": "postcss pluging for scoping CSS using a parent class",
   "files": [
     "index.js"
   ],
@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/thompsongl/postcss-class-prefix.git"
+    "url": "https://github.com/josestbernard/maquina-js.git"
   },
   "keywords": [
     "css",

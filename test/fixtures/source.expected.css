@@ -1,7 +1,7 @@
-.prfx-my-class {
+.parent-wrapper .my-class {
   color: green;
 }
 
-.prfx-my-class .prfx-with-another-class {
+.parent-wrapper .my-class .with-another-class {
   box-sizing: border-box;
 }

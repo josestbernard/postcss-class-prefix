@@ -1,30 +1,32 @@
-# postcss-class-prefix [![Build Status](https://secure.travis-ci.org/thompsongl/postcss-class-prefix.png?branch=master)](http://travis-ci.org/thompsongl/postcss-class-prefix)
+# postcss-parent-scope
 
-A [PostCSS](https://github.com/postcss/postcss) plugin to prefix/namespace classes.
+A [PostCSS](https://github.com/postcss/postcss) plugin to scope CSS with a parent class.
 
-Avoid collisions with other libraries/stylesheets by prefixing your components with a namespace.
-
+wrap
 __Example input__
 
 ```css
 .Component { /* ... */ }
 .Component--modifier { /* ... */ }
 .Component-descendent { /* ... */ }
+.Component1, .Component2 { /* ... */ }
 ```
 
 __Example output__
-`classPrefix('pfx-')`
+`parentScope('parent-wrapper')`
 ```css
-.pfx-Component { /* ... */ }
-.pfx-Component--modifier { /* ... */ }
-.pfx-Component-descendent { /* ... */ }
+.parent-wrapper .Component { /* ... */ }
+.parent-wrapper .Component--modifier { /* ... */ }
+.parent-wrapper .Component-descendent { /* ... */ }
+.parent-wrapper .Component1, .parent-wrapper .Component2 { /* ... */ }
+
 ```
 
 
 ## Installation
 
 ```
-npm install postcss-class-prefix
+npm install postcss-parent-scope
 ```
 
 ## Usage
@@ -32,11 +34,11 @@ npm install postcss-class-prefix
 ```javascript
 var fs        = require('fs');
 var postcss   = require('postcss');
-var classPrfx = require('postcss-class-prefix');
+var parentScope = require('postcss-parent-scope');
 
 var css = fs.readFileSync('css/my-file.css', 'utf8').toString();
 var out = postcss()
-          .use(classPrfx('my-prefix-'))
+          .use(parentScope('parent-class'))
           .process(css);
 ```
 
@@ -45,11 +47,11 @@ var out = postcss()
 ```javascript
 var fs        = require('fs');
 var postcss   = require('postcss');
-var classPrfx = require('postcss-class-prefix');
+var parentScope = require('postcss-parent-scope');
 
 var css = fs.readFileSync('css/my-file.css', 'utf8').toString();
 var out = postcss()
-          .use(classPrfx('my-prefix-', { ignore: [/ng-/, 'some-class-to-ignore']}))
+          .use(parentScope('parent-class', { ignore: [/ng-/, 'some-class-to-ignore']}))
           .process(css);
 ```
 
@@ -57,6 +59,4 @@ var out = postcss()
 
 MIT
 
-## Acknowledgements
-
-* Based on [rework-class-prefix](https://github.com/jnv/rework-class-prefix) ([originally](https://github.com/johnotander/rework-class-prefix))
+* Based on [postcss-class-prefix](https://github.com/thompsongl/postcss-class-prefix)
