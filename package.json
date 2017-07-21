@@ -1,6 +1,6 @@
 {
   "name": "postcss-parent-scope",
-  "version": "0.3.0",
+  "version": "0.1.0",
   "description": "postcss pluging for scoping CSS using a parent class",
   "files": [
     "index.js"
