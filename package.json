@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/josestbernard/maquina-js.git"
+    "url": "https://github.com/josestbernard/postcss-parent-scope.git"
   },
   "keywords": [
     "css",
